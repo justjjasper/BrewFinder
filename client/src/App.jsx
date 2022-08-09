@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
 
 export default function App () {
   return (
-    <div> Hello world!</div>
+    <MoreDiv> Donkey </MoreDiv>
   )
-}
+};
+
+var MoreDiv = styled.h2`
+
+`
+
