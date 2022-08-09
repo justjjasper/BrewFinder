@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config webpack.config.js -w"
+    "client-start": "webpack --config webpack.config.js -w",
+    "server-start": "npx nodemon --watch server server/server.js"
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,9 @@
   "dependencies": {
     "axios": "^0.27.2",
     "babel": "^6.23.0",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.19",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }
