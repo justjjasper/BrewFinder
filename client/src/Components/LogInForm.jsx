@@ -3,12 +3,12 @@ import styled from 'styled-components';
 import axios from 'axios';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import SignUpModal from './SignUpModal.jsx'
+export default function LogInForm( {createAcc, toggleLogIn, username, setUsername} ) {
 
-export default function LogInForm( {toggleLogIn} ) {
-
-  var [username, setUsername] = useState('');
   var [password, setPassword] = useState('');
   var [togglePW, setTogglePW] = useState(true);
+  var [toggleSignUp, setToggleSignUp] = useState(false);
 
   var handleLogIn = (e) => {
     e.preventDefault();
@@ -39,8 +39,8 @@ export default function LogInForm( {toggleLogIn} ) {
 
     <LineDiv></LineDiv>
 
-    <SignUpDiv> <Button variant="contained" color="success"> Sign Up </Button> </SignUpDiv>
-
+    <SignUpDiv> <Button onClick={() => setToggleSignUp(true)} variant="contained" color="success"> Sign Up </Button> </SignUpDiv>
+    {toggleSignUp && <SignUpModal createAcc={createAcc} setToggleSignUp={setToggleSignUp}/>}
     </LogInFormContainer>
   )
 };

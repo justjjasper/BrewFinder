@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 import BrewCard from './BrewCard.jsx';
 
-export default function Gallery ( {brews, index, setIndex} ) {
+export default function Gallery ( {addToFaves, brews, index, setIndex} ) {
   var length = brews.length;
 
   var leftClick = (e) => {
@@ -17,7 +17,7 @@ export default function Gallery ( {brews, index, setIndex} ) {
     if (index !== length-1) {
       setIndex(index+= 1);
     }
-  }
+  };
 
   return (
     <GalleryContainer>
@@ -27,7 +27,7 @@ export default function Gallery ( {brews, index, setIndex} ) {
       onClick={leftClick}/>
       <GalleryBox>
 
-      <BrewCard brew = {brews[index]}/>
+      <BrewCard addToFaves={addToFaves} brew={brews[index]}/>
 
       </GalleryBox>
      <RightButton

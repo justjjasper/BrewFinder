@@ -5,7 +5,8 @@ import TextField from '@mui/material/TextField';
 import BrewCard from './BrewCard.jsx';
 import BrewForm from './BrewForm.jsx';
 import Gallery from './Gallery.jsx';
-export default function Content () {
+
+export default function Content ( {addToFaves} ) {
 
   var [brewList, setBrewList] = useState([]);
   var [searchForm, setSearchForm] = useState('');
@@ -26,8 +27,15 @@ export default function Content () {
 
   return (
     <ContentContainer>
+
       <BrewForm searchBrew={searchBrew} />
-     {brewList?.length !== 0 && <Gallery index={index} setIndex={setIndex} brews={brewList}/>}
+     {brewList?.length !== 0 &&
+     <Gallery
+     addToFaves={addToFaves}
+     index={index}
+     setIndex={setIndex}
+     brews={brewList}/>}
+
     </ContentContainer>
   )
 };

@@ -6,11 +6,20 @@ import Button from '@mui/material/Button';
 
 export default function App () {
   var [logIn, setLogIn] = useState(true);
+  var [username, setUsername] = useState('');
+
+  var createAcc = (body) => {
+    console.log('body', body)
+  };
 
   return (
     <AppContainer>
       {!logIn && <NavBar/> }
-      {logIn && <LogInForm toggleLogIn={setLogIn}/>}
+      {logIn && <LogInForm
+      username={username}
+      createAcc={createAcc}
+      setUsername={setUsername}
+      toggleLogIn={setLogIn}/>}
     </AppContainer>
   )
 };

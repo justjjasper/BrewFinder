@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 import Button from '@mui/material/Button';
 
-export default function BrewCard ( {brew} ) {
+export default function BrewCard ( {addToFaves, brew} ) {
 
   if (brew.street === null) {
     brew.street = 'No Street Address Available'
@@ -16,15 +16,28 @@ export default function BrewCard ( {brew} ) {
     var newPhone = '(' + brew.phone.slice(0,3) + ') ' + brew.phone.slice(3)
   }
 
-  var adjust = {maxWidth: '10x', maxHeight: '10x', fontSize: '10px'}
+  var adjust = {maxWidth: '10x', maxHeight: '10x', fontSize: '10px'};
+
+  var handleSubmit = (e) => {
+    e.preventDefault()
+    addToFaves(brew);
+  };
+
   return (
      <BrewCardContainer>
         <BrewTitle> {brew.name}</BrewTitle>
         <Image src='https://cdn.theculturetrip.com/wp-content/uploads/2016/09/main-bar-at-tir-na-nog.jpg'></Image>
+
         <SubContainer>
           <Info> Info </Info>
-          <AddFave> <Button style={adjust} variant="contained" size="medium"> Add to Favorites </Button> </AddFave>
+          <AddFave> <Button
+          onClick={handleSubmit}
+          style={adjust}
+          variant="contained"
+          size="medium"> Add to Favorites </Button>
+           </AddFave>
         </SubContainer>
+
         <AddressContainer>
           <AddressIcon className="fa-solid fa-house" />
           <Address> {brew.street}, {brew.city}, {brew.state} </Address>
