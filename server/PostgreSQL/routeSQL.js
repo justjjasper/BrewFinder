@@ -10,5 +10,8 @@ routes.post('/signup', (req, res) => {
   createAccount();
 });
 
+routes.post('/addfave', (req, res) => {
+
+});
 
 module.exports = routes
