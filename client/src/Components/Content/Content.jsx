@@ -10,15 +10,6 @@ export default function Content () {
   var [brewList, setBrewList] = useState([]);
   var [searchForm, setSearchForm] = useState('');
 
-  // useEffect(() => {
-  //   var getBreweries = async() => {
-  //     var results = await axios.get('https://api.openbrewerydb.org/breweries?by_city=long_beach')
-  //     setBrewList(results.data)
-  //     console.log('what is results.data', results.data)
-  //   };
-  //   getBreweries();
-  // },[]);
-
   var searchBrew = async (query) => {
      var i = 0, queryLength = query.length;
      for(i; i < queryLength - 1; i++) {
@@ -42,6 +33,6 @@ export default function Content () {
 var ContentContainer = styled.div`
   margin-top: 20px;
   position: relative;
-  width: 500px;
+  width: 600px;
   left: 450px;
 `;

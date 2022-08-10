@@ -5,7 +5,7 @@ import BrewCard from './BrewCard.jsx';
 
 export default function Gallery ( {brews} ) {
   var length = brews.length;
-  var [index, setIndex] = useState(8);
+  var [index, setIndex] = useState(0);
 
   var leftClick = (e) => {
     console.log('what is state', index)
@@ -23,7 +23,7 @@ export default function Gallery ( {brews} ) {
   return (
     <GalleryContainer>
 
-      <LeftButton
+     <LeftButton
       className="fa-solid fa-angle-left"
       onClick={leftClick}/>
       <GalleryBox>
@@ -43,8 +43,8 @@ var GalleryContainer = styled.div`
   border: 2px solid;
   display: flex;
   flex-direction: row;
-  align-content: center;
-  margin-top: 30px;
+  align-content: space-between;
+  margin: 30px 70px 0;
 `;
 
 var GalleryBox = styled.div`
@@ -53,8 +53,14 @@ var GalleryBox = styled.div`
 
 var LeftButton = styled.i`
   font-size: 40px;
+  position: relative;
+  top: 170px;
+  padding-right: 10px;
 `;
 
 var RightButton = styled.i`
   font-size: 40px;
+  position: relative;
+  top: 170px;
+  padding-left: 10px;
 `;
