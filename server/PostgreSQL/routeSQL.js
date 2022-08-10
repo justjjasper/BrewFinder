@@ -22,7 +22,6 @@ routes.post('/addfave', (req, res) => {
 });
 
 routes.get('/getfaves', (req, res) => {
-    console.log('what is req', req.query)
   var getFaves = async () => {
     var results = await models.getFaves(req.query);
     try{res.status(200).send(results)}

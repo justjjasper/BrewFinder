@@ -61,7 +61,7 @@ var BrewFinderHome = styled.span`
   font-size: 40px;
   :hover {
     cursor: pointer;
-    color: blue;
+    color: #1976d2;
   }
 `;
 
@@ -72,5 +72,6 @@ var UserIcon = styled.i`
   font-size: 40px;
   :hover {
     cursor: pointer;
+    color: #1976d2;
   }
 `;
