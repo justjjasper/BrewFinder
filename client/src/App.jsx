@@ -17,7 +17,7 @@ export default function App () {
 
   return (
     <AppContainer>
-      {!logIn && <NavBar/> }
+      {!logIn && <NavBar username={username}/> }
       {logIn && <LogInForm
       username={username}
       createAcc={createAcc}

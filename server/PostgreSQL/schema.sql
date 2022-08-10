@@ -7,12 +7,12 @@ CREATE TABLE users (
 
 CREATE TABLE favorites (
   id SERIAL PRIMARY KEY NOT NULL,
-  title VARCHAR(200),
-  street VARCHAR(200),
-  city VARCHAR(200),
-  state VARCHAR(200),
-  phone INTEGER,
-  website VARCHAR(200),
-  username VARCHAR(200)
+  name VARCHAR,
+  street VARCHAR,
+  city VARCHAR,
+  state VARCHAR,
+  phone VARCHAR,
+  website_url VARCHAR,
+  username VARCHAR
 );
 
