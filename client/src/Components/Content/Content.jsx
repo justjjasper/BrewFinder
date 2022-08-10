@@ -1,0 +1,47 @@
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
+import axios from 'axios';
+import TextField from '@mui/material/TextField';
+import BrewCard from './BrewCard.jsx';
+import BrewForm from './BrewForm.jsx';
+import Gallery from './Gallery.jsx';
+export default function Content () {
+
+  var [brewList, setBrewList] = useState([]);
+  var [searchForm, setSearchForm] = useState('');
+
+  // useEffect(() => {
+  //   var getBreweries = async() => {
+  //     var results = await axios.get('https://api.openbrewerydb.org/breweries?by_city=long_beach')
+  //     setBrewList(results.data)
+  //     console.log('what is results.data', results.data)
+  //   };
+  //   getBreweries();
+  // },[]);
+
+  var searchBrew = async (query) => {
+     var i = 0, queryLength = query.length;
+     for(i; i < queryLength - 1; i++) {
+     query = query.replace(" ", "_");
+    };
+    var url = `https://api.openbrewerydb.org/breweries?by_city=${query}`;
+    var results = await axios.get(url)
+    setBrewList(results.data);
+  }
+
+  console.log('what is', brewList)
+
+  return (
+    <ContentContainer>
+      <BrewForm searchBrew={searchBrew} />
+     {brewList?.length !== 0 && <Gallery brews={brewList}/>}
+    </ContentContainer>
+  )
+};
+
+var ContentContainer = styled.div`
+  margin-top: 20px;
+  position: relative;
+  width: 500px;
+  left: 450px;
+`;

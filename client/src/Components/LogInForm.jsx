@@ -36,7 +36,9 @@ export default function LogInForm( {toggleLogIn} ) {
 
      <EyeIcon onClick={() => setTogglePW(!togglePW)} className="fas fa-eye"/>
      <Button onClick={handleLogIn}variant="contained" size="medium"> Log In </Button>
+
     <LineDiv></LineDiv>
+
     <SignUpDiv> <Button variant="contained" color="success"> Sign Up </Button> </SignUpDiv>
 
     </LogInFormContainer>
@@ -44,12 +46,15 @@ export default function LogInForm( {toggleLogIn} ) {
 };
 
 var LogInFormContainer = styled.div`
-  border: 2px solid;
+  border: 1.2px solid;
   padding: 25px 50px 10px 50px;
   display: flex;
   flex-direction: column;
   position: absolute;
   top: 140px;
+  left: 540px;
+  border-radius: 10px;
+  box-shadow: 0px 0.4rem 1.5rem rgb(0 0 0 / 25%);
 `;
 
 var UsernameDiv = styled.div`
