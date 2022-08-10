@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import Content from './Content/Content.jsx';
-import UserPage from './UserPage.jsx';
+import UserPage from './User/UserPage.jsx';
 
 export default function NavBar () {
 
@@ -39,6 +39,10 @@ var NavBarContainer = styled.div`
 var BrewFinderHome = styled.span`
   font-family: 'Oleo SCrip Swash Caps', cursive;
   font-size: 40px;
+  :hover {
+    cursor: pointer;
+    color: blue;
+  }
 `;
 
 var UserIcon = styled.i`
@@ -46,4 +50,7 @@ var UserIcon = styled.i`
   left: 1175px;
   top: 10px;
   font-size: 40px;
+  :hover {
+    cursor: pointer;
+  }
 `;

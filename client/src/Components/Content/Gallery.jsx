@@ -3,9 +3,8 @@ import styled from 'styled-components';
 import axios from 'axios';
 import BrewCard from './BrewCard.jsx';
 
-export default function Gallery ( {brews} ) {
+export default function Gallery ( {brews, index, setIndex} ) {
   var length = brews.length;
-  var [index, setIndex] = useState(0);
 
   var leftClick = (e) => {
     console.log('what is state', index)
@@ -40,7 +39,7 @@ export default function Gallery ( {brews} ) {
 };
 
 var GalleryContainer = styled.div`
-  border: 2px solid;
+  // border: 2px solid;
   display: flex;
   flex-direction: row;
   align-content: space-between;

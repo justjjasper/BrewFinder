@@ -9,8 +9,10 @@ export default function Content () {
 
   var [brewList, setBrewList] = useState([]);
   var [searchForm, setSearchForm] = useState('');
+  var [index, setIndex] = useState(0)
 
   var searchBrew = async (query) => {
+     setIndex(0);
      var i = 0, queryLength = query.length;
      for(i; i < queryLength - 1; i++) {
      query = query.replace(" ", "_");
@@ -25,7 +27,7 @@ export default function Content () {
   return (
     <ContentContainer>
       <BrewForm searchBrew={searchBrew} />
-     {brewList?.length !== 0 && <Gallery brews={brewList}/>}
+     {brewList?.length !== 0 && <Gallery index={index} setIndex={setIndex} brews={brewList}/>}
     </ContentContainer>
   )
 };
