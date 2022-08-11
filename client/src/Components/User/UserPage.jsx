@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import axios from 'axios';
 import BrewGrid from './BrewGrid.jsx';
 
-export default function UserPage ( {favorites} ) {
+export default function UserPage ( {username, favorites} ) {
   console.log('show me faves from userPage', favorites);
   return (
     <PageContainer>
-      <BrewGrid  favorites= {favorites} />
+      <BrewGrid username={username} favorites= {favorites} />
      </PageContainer>
 
   );

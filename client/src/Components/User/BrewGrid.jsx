@@ -3,14 +3,14 @@ import styled from 'styled-components';
 import axios from 'axios';
 import FaveBrewCard from './FaveBrewCard.jsx';
 
-export default function BrewGrid ( {favorites} ) {
+export default function BrewGrid ( {username, favorites} ) {
   return (
     <BrewGridContainer>
       <BrewBody>
       <Header> Saved Breweries </Header>
       <BrewBox> {favorites.map((each) => {
         return (
-          <FaveBrewCard favorite ={each} />
+          <FaveBrewCard username={username} favorite ={each} />
         )
       })}</BrewBox>
       </BrewBody>

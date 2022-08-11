@@ -31,8 +31,20 @@ var getFaves = async (body) => {
   var results = await pool.query(queryString);
   return results.rows;
   pool.end();
-}
+};
+
+var postNotes = async (body) => {
+  var {note, username, name, note} = body;
+  var queryString = `INSERT INTO
+  notes(note, username, name)
+  VALUES('${note}', '${username}', '${name}')`;
+  var results = await pool.query(queryString);
+  return results;
+  pool.end();
+};
+
 
 module.exports.createAccount = createAccount;
 module.exports.addFave = addFave;
 module.exports.getFaves = getFaves;
+module.exports.postNotes = postNotes;

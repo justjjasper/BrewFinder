@@ -29,6 +29,17 @@ routes.get('/getfaves', (req, res) => {
       console.log('Error in getting faves in backend',err)}
   };
   getFaves();
+});
+
+routes.post('/postnote', (req, res) => {
+  console.log('what is baclemd', req.body)
+  var postNotes = async () => {
+    var results = await models.postNotes(req.body);
+    try{res.sendStatus(200)}
+    catch(err){res.sendStatus(404)
+    console.log('Error in posting notes in back end')}
+  };
+  postNotes();
 })
 
 module.exports = routes

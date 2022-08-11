@@ -14,6 +14,7 @@ export default function SignUpModal ( {createAcc, setToggleSignUp} ) {
     e.preventDefault();
     var body = {username: username, password: password, email: email};
     createAcc(body);
+    setToggleSignUp(false);
   };
 
   return (
@@ -82,7 +83,7 @@ export default function SignUpModal ( {createAcc, setToggleSignUp} ) {
           size="medium"> Create Account
           </Button>
           </CreateAccountButton>
-          {/* </ModalBody> */}
+
       </ModalBox>
     </ModalContainer>
   )

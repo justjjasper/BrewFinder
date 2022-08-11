@@ -36,7 +36,7 @@ export default function NavBar ( {username} ) {
       </NavBarContainer>
 
       {!toggleUserPage && <Content addToFaves={addToFaves}/>}
-      {toggleUserPage && <UserPage favorites={favorites}/>}
+      {toggleUserPage && <UserPage username={username} favorites={favorites}/>}
 
     </PageContainer>
   );

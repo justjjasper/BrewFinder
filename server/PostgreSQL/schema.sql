@@ -16,3 +16,9 @@ CREATE TABLE favorites (
   username VARCHAR
 );
 
+CREATE TABLE notes (
+   id SERIAL PRIMARY KEY NOT NULL,
+   note VARCHAR,
+   username VARCHAR,
+   name VARCHAR
+);
