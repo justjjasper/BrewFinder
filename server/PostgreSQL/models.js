@@ -43,8 +43,21 @@ var postNotes = async (body) => {
   pool.end();
 };
 
+var getNotes = async (body) => {
+  var {username, name} = body;
+  var queryString = `SELECT * FROM
+  notes
+  WHERE
+  username = '${username}'
+  AND
+  name = '${name}'`;
+  var results = await pool.query(queryString);
+  return results.rows;
+  pool.end();
+};
 
 module.exports.createAccount = createAccount;
 module.exports.addFave = addFave;
 module.exports.getFaves = getFaves;
 module.exports.postNotes = postNotes;
+module.exports.getNotes = getNotes;

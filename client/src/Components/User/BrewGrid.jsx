@@ -8,9 +8,9 @@ export default function BrewGrid ( {username, favorites} ) {
     <BrewGridContainer>
       <BrewBody>
       <Header> Saved Breweries </Header>
-      <BrewBox> {favorites.map((each) => {
+      <BrewBox> {favorites.map((each, i) => {
         return (
-          <FaveBrewCard username={username} favorite ={each} />
+          <FaveBrewCard key={i} username={username} favorite ={each} />
         )
       })}</BrewBox>
       </BrewBody>

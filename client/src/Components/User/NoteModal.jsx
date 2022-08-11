@@ -5,7 +5,16 @@ import NoteForm from './NoteForm.jsx';
 import Button from '@mui/material/Button';
 
 export default function NoteModal ( {username, toggle, brew} ) {
-  console.log('what is brew from notemodal', brew)
+  var [notes, setNotes] = useState([]);
+
+  useEffect(() => {
+    var getNotes = async () => {
+      var results = await axios.get('/brewery/getnotes/', {params: brew})
+      try{setNotes(results.data)}
+      catch(err) {console.log('Err in gettin notes client side')}
+    };
+    getNotes();
+  }, []);
 
   var post = async (query) => {
     brew.note = query

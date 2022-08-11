@@ -32,7 +32,6 @@ routes.get('/getfaves', (req, res) => {
 });
 
 routes.post('/postnote', (req, res) => {
-  console.log('what is baclemd', req.body)
   var postNotes = async () => {
     var results = await models.postNotes(req.body);
     try{res.sendStatus(200)}
@@ -42,4 +41,14 @@ routes.post('/postnote', (req, res) => {
   postNotes();
 })
 
+routes.get('/getnotes', (req, res) => {
+  console.log('what is req', req.query)
+  var getNotes = async () => {
+    var results = await models.getNotes(req.query)
+    try{res.status(200).send(results)}
+    catch(err) {res.sendStatus(404)
+    console.log('Error in getting notes from back end')}
+  }
+  getNotes();
+})
 module.exports = routes
