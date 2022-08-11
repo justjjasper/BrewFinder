@@ -54,6 +54,7 @@ var NavBarContainer = styled.div`
   align-content: space-between;
   border: 2px solid;
   position: aboslute;
+  border-radius: 10px;
 `;
 
 var BrewFinderHome = styled.span`
