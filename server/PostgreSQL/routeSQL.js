@@ -42,7 +42,6 @@ routes.post('/postnote', (req, res) => {
 })
 
 routes.get('/getnotes', (req, res) => {
-  console.log('what is req', req.query)
   var getNotes = async () => {
     var results = await models.getNotes(req.query)
     try{res.status(200).send(results)}
@@ -50,5 +49,16 @@ routes.get('/getnotes', (req, res) => {
     console.log('Error in getting notes from back end')}
   }
   getNotes();
-})
+});
+
+routes.get('/getuserinfo', (req, res) => {
+  var getUserInfo = async () => {
+    var results = await models.getUserInfo()
+    try{res.status(200).send(results)}
+    catch(err){res.sendStatus(400)
+    console.log('Error in getting all user data from back end', err)}
+  };
+  getUserInfo();
+});
+
 module.exports = routes

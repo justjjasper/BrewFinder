@@ -13,6 +13,7 @@ export default function FaveBrewCard ( {username, favorite} ) {
     <BrewImg
     onClick = {() => setToggleNoteModal(true)}
     src='https://cdn.theculturetrip.com/wp-content/uploads/2016/09/main-bar-at-tir-na-nog.jpg'/>
+    <DivSpan></DivSpan>
     <BrewName>  {favorite.name}  </BrewName>
     {toggleNoteModal &&
     <NoteModal
@@ -52,4 +53,8 @@ var BrewName = styled.div`
   font-size: 20px;
   position: relative;
   left: 65
+`;
+
+var DivSpan = styled.div`
+  border-bottom: 1px solid;
 `;

@@ -3,17 +3,40 @@ import styled from 'styled-components';
 import axios from 'axios';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import SignUpModal from './SignUpModal.jsx'
+import SignUpModal from './SignUpModal.jsx';
+
 export default function LogInForm( {createAcc, toggleLogIn, username, setUsername} ) {
 
   var [password, setPassword] = useState('');
   var [togglePW, setTogglePW] = useState(true);
   var [toggleSignUp, setToggleSignUp] = useState(false);
 
-  var handleLogIn = (e) => {
+  var handleLogIn = async (e) => {
     e.preventDefault();
-    toggleLogIn(false);
-  }
+    var userInfo = await axios.get('/brewery/getuserinfo');
+    var info = userInfo.data;
+
+    var checkUser = false;
+    var user = info.forEach((each) => {
+      if (each.username === username) {
+        return checkUser = true;
+      }
+    });
+
+    var checkPW = false;
+    var passwordCheck = info.forEach((each) => {
+      if (each.password === password) {
+        return checkPW = true;
+      }
+    });
+
+    if (checkUser && checkPW) {
+      toggleLogIn(false);
+    } else {
+      alert('Username or password is incorrect')
+    };
+  };
+
   return (
     <LogInFormContainer>
 
