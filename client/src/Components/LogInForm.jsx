@@ -74,8 +74,8 @@ var LogInFormContainer = styled.div`
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 140px;
-  left: 540px;
+  top: 190px;
+  left: 870px;
   border-radius: 10px;
   box-shadow: 0px 0.4rem 1.5rem rgb(0 0 0 / 25%);
 `;

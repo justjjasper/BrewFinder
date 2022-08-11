@@ -18,6 +18,19 @@ export default function App () {
   return (
     <AppContainer>
       {!logIn && <NavBar username={username}/> }
+
+     {logIn &&
+     <TextContainer>
+     <OpeningStatement>
+        <Tittle>
+          Brew Finder
+        </Tittle>
+        <Context>
+          Find local breweries and take notes
+        </Context>
+
+      </OpeningStatement>
+      </TextContainer>}
       {logIn && <LogInForm
       username={username}
       createAcc={createAcc}
@@ -33,5 +46,28 @@ var AppContainer = styled.div`
   flex-direction: column;
 `;
 
+var OpeningStatement = styled.span`
 
+`;
 
+var TextContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+var Tittle = styled.span`
+  font-family: 'Oleo SCrip Swash Caps', cursive;
+  color: #1976d2;
+  font-size: 80px;
+  position: relative;
+  left: 280px;
+  top: 150px;
+`;
+
+var Context = styled.span`
+  position: relative;
+  font-family: 'Oleo SCrip Swash Caps', monospace;
+  font-size: 20px;
+  top: 200px;
+  right: 120px;
+`;
