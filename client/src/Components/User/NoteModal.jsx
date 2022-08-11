@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 import NoteForm from './NoteForm.jsx';
 import Button from '@mui/material/Button';
+import Notes from './Notes.jsx';
 
 export default function NoteModal ( {username, toggle, brew} ) {
   var [notes, setNotes] = useState([]);
@@ -19,7 +20,11 @@ export default function NoteModal ( {username, toggle, brew} ) {
   var post = async (query) => {
     brew.note = query
     var results = axios.post('/brewery/postnote', brew)
-    try{console.log('success in posting note')}
+    try{
+      var results = await axios.get('/brewery/getnotes/', {params: brew})
+      try {setNotes(results.data)}
+      catch(err){console.log('Err in retreiving data after posting', err)}
+    }
     catch(err){console.log('err in posting note from front')}
   };
 
@@ -33,7 +38,14 @@ export default function NoteModal ( {username, toggle, brew} ) {
           <ContentContainer>
 
             <NotesContainer>
-
+              <NoteHeader> Notes </NoteHeader>
+              {notes.map((each, i) => {
+                return (
+                  <ul>
+                    <Notes key={i} note={each}/>
+                  </ul>
+                )
+              })}
             </NotesContainer>
             <NoteForm post={post} />
 
@@ -99,4 +111,11 @@ var NotesContainer = styled.div`
   border: 2px solid;
   height: 400px;
   width: 400px;
+`;
+
+var NoteHeader = styled.div`
+  font-weight: bold;
+  font-size: 25px;
+  position: relative;
+  left: 180
 `;

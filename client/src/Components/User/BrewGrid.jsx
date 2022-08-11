@@ -24,7 +24,6 @@ var BrewGridContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 800px;
-  border: 2px solid;
 
 `;
 
