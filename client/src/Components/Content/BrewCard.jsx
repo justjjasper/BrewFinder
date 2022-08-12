@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import Button from '@mui/material/Button';
+import imageData from '../../Assets/imageData.js'
 
 export default function BrewCard ( {addToFaves, brew} ) {
+
+  var index = Math.floor(Math.random() * imageData.length);
 
   if (brew.street === null) {
     brew.street = 'No Street Address Available'
@@ -26,7 +29,7 @@ export default function BrewCard ( {addToFaves, brew} ) {
   return (
      <BrewCardContainer>
         <BrewTitle> {brew.name}</BrewTitle>
-        <Image src='https://cdn.theculturetrip.com/wp-content/uploads/2016/09/main-bar-at-tir-na-nog.jpg'></Image>
+        <Image src={imageData[index]}></Image>
 
         <SubContainer>
           <Info> Info </Info>

@@ -44,5 +44,6 @@ var ContentContainer = styled.div`
   margin-top: 20px;
   position: relative;
   width: 600px;
-  left: 450px;
+  left: 425px;
+  bottom: 990px;
 `;

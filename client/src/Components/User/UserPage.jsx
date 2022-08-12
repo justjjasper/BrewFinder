@@ -16,4 +16,6 @@ export default function UserPage ( {username, favorites} ) {
 var PageContainer = styled.div`
   display: flex;
   justify-content: center;
+  position: relative;
+  bottom: 1025px;
 `;

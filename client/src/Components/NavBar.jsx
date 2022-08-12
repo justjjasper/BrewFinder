@@ -32,9 +32,22 @@ export default function NavBar ( {username} ) {
 
       <NavBarContainer>
         <BrewFinderHome onClick = { () => setToggleUserPage(false) } > Brew Finder </BrewFinderHome>
+        <About> About </About>
+        <FAQ> FAQ </FAQ>
+        <Support> Support </Support>
         <UserIcon onClick = { () => setToggleUserPage(true) } className="fa-solid fa-user"> </UserIcon>
       </NavBarContainer>
 
+      <SideContainer>
+        <Home onClick = { () => setToggleUserPage(false) }> Home </Home>
+        <Public> Public </Public>
+        <SideContent>
+          <Search> Search </Search>
+          <Tags> Tags </Tags>
+          <Community> Community </Community>
+          <Companies> Companies </Companies>
+        </SideContent>
+      </SideContainer>
       {!toggleUserPage && <Content addToFaves={addToFaves}/>}
       {toggleUserPage && <UserPage username={username} favorites={favorites}/>}
 
@@ -57,6 +70,38 @@ var NavBarContainer = styled.div`
   border-radius: 10px;
 `;
 
+var Search = styled.span`
+  margin: 5px;
+  :hover {
+    cursor: pointer;
+    font-weight: bold;
+  };
+`;
+
+var Tags = styled.span`
+margin: 5px;
+:hover {
+  cursor: pointer;
+  font-weight: bold;
+};
+`;
+
+var Community= styled.span`
+margin: 5px;
+:hover {
+  cursor: pointer;
+  font-weight: bold;
+};
+`;
+
+var Companies = styled.span`
+margin: 5px;
+:hover {
+  cursor: pointer;
+  font-weight: bold;
+};
+`;
+
 var BrewFinderHome = styled.span`
   font-family: 'Oleo SCrip Swash Caps', cursive;
   font-size: 40px;
@@ -68,11 +113,81 @@ var BrewFinderHome = styled.span`
 
 var UserIcon = styled.i`
   position: relative;
-  left: 1175px;
+  left: 870px;
   top: 10px;
   font-size: 40px;
   :hover {
     cursor: pointer;
     color: #1976d2;
   }
+`;
+
+var Home = styled.span`
+  font-size: 25px;
+  position: relative;
+  left: 30px;
+  top: 20px;
+  :hover {
+    cursor: pointer;
+    color: #1976d2;
+  }
+`;
+
+var Public = styled.span`
+  font-size: 25px;
+  position: relative;
+  right: 37px;
+  top: 55px;
+`;
+
+var SideContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  left: 70px;
+  font-size: 25px;
+  top: 45px;
+`;
+
+var About = styled.span`
+  font-family: 'Ubuntu', monospace;
+  font-size: 35px;
+  position: relative;
+  left: 200px;
+  top: 8px;
+  :hover {
+    cursor: pointer;
+    color: #1976d2;
+  }
+`;
+
+var FAQ = styled.span`
+  font-family: 'Ubuntu', monospace;
+  font-size: 35px;
+  position: relative;
+  left: 400px;
+  top: 8px;
+  :hover {
+    cursor: pointer;
+    color: #1976d2;
+  }
+`;
+
+var Support = styled.span`
+  font-family: 'Ubuntu', monospace;
+  font-size: 35px;
+  position: relative;
+  left: 670px;
+  top: 8px;
+  :hover {
+    cursor: pointer;
+    color: #1976d2;
+  }
+`;
+
+var SideContainer = styled.div`
+  border-right: 0.5px solid;
+  width: 250px;
+  height: 1000px
+
 `;

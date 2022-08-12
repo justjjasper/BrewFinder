@@ -2,17 +2,18 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import NoteModal from './NoteModal.jsx';
+import imageData from '../../Assets/imageData.js';
 
 // useEffect to get all of the notes
 export default function FaveBrewCard ( {username, favorite} ) {
-
+  var index = Math.floor(Math.random() * imageData.length);
   var [toggleNoteModal, setToggleNoteModal] = useState(false);
 
   return (
     <BrewCardContainer>
     <BrewImg
     onClick = {() => setToggleNoteModal(true)}
-    src='https://cdn.theculturetrip.com/wp-content/uploads/2016/09/main-bar-at-tir-na-nog.jpg'/>
+    src={imageData[index]}/>
     <DivSpan></DivSpan>
     <BrewName>  {favorite.name}  </BrewName>
     {toggleNoteModal &&
